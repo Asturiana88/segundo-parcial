@@ -1,0 +1,38 @@
+<form id="loginform" class="form-horizontal" [formGroup]="form">
+
+    <div style="margin-bottom: 25px" class="input-group" *ngFor="let input of inputs">
+
+        <input *ngIf="input.type == 'text'" type="text"  [formControlName]="input.name" class="form-control" [name]="input.name" [placeholder]="input.placeholder">                                        
+        <input *ngIf="input.type == 'password'" type="password"  [formControlName]="input.name" class="form-control" [name]="input.name" [placeholder]="input.placeholder">                                        
+        <input *ngIf="input.type == 'email'" type="email"  [formControlName]="input.name" class="form-control" [name]="input.name" [placeholder]="input.placeholder">                                        
+
+        <ng-container *ngIf="input.type == 'radio'">
+            <div class="d-flex my-3">
+                <div class="form-check" *ngFor="let option of input.options">
+                    <input class="form-check-input" [id]="option" [formControlName]="input.name" [value]="option" type="radio" [name]="input.name">
+                    <label class="form-check-label mx-3" [for]="option">
+                        {{option}}
+                    </label>
+                </div>
+            </div>
+        </ng-container>
+
+        <ng-container *ngIf="input.type == 'checkbox'">
+            <div class="d-flex">
+                <input class="form-check-input" [id]="input.name"  [formControlName]="input.name" [value]="input.initialValue" type="checkbox" [name]="input.name">
+                <label class="form-check-label mx-3" [for]="input.name">
+                    {{input.placeholder}}
+                </label>
+            </div>
+        </ng-container>
+
+    </div>
+
+    <div class="input-group">
+        <div style="margin-top:10px" class="form-group">
+            <div class="col-sm-12 controls">
+                <button (click)="handleSubmit()" class="btn btn-success"> Submit </button>
+            </div>
+        </div>
+    </div>    
+</form>     

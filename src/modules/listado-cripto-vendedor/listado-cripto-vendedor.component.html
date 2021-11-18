@@ -1,0 +1,25 @@
+<div class="row">
+    <div class="col-12">
+        <table class="table table-dark">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Costo</th>
+                    <th>Comision</th>
+                    <th>Año</th>
+                    <th>Ofrece</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let cripto of criptos | async">
+                    <td>{{cripto.nombre}}</td>
+                    <td>{{cripto.costo}}</td>
+                    <td>{{cripto.comision}}% {{cripto.comision | comision}}</td>
+                    <td>{{cripto['año']}}</td>
+                    <td *ngIf="laTiene(cripto)"><button class="btn btn-danger" (click)="handleCripto(cripto)"> Dejar de ofrecer </button></td>
+                    <td *ngIf="!laTiene(cripto)"><button class="btn btn-success" (click)="handleCripto(cripto)"> Ofrecer </button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

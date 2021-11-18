@@ -1,0 +1,43 @@
+<div class="row">
+    <div class="col-12">
+        <h3 class="my-3">Crear Cripto</h3>
+    </div>
+
+    <div class="col-4 shadow p-4">
+        <form id="loginform" class="form-horizontal" [formGroup]="form">
+            
+            <div style="margin-bottom: 25px" class="input-group">
+                <input class="form-control"  formControlName="nombre" type="nombre" name="nombre"  placeholder="Nombre">                                        
+            </div>
+            <div style="margin-bottom: 25px" class="input-group">
+                <input class="form-control"  formControlName="costo" type="number" name="costo"  placeholder="Costo">                                        
+            </div>
+
+            <div style="margin-bottom: 25px" class="input-group">
+                <input class="form-control"  formControlName="comision" type="number" name="comision"  placeholder="Comision">                                        
+            </div>
+
+
+            <div style="margin-bottom: 25px" class="input-group">
+                <input class="form-control"  formControlName="año" type="number" name="año"  placeholder="Año">                                        
+            </div>
+
+            <div class="input-group">
+                <div style="margin-top:10px" class="form-group">
+                    <button (click)="validarGuardar()" class="btn btn-success w-100"> Crear </button>
+                </div>
+            </div>    
+            
+            <div class="mt-3">
+                <span class="text-danger" *ngIf="singUpError">{{singUpError}}</span>
+            </div>
+        </form>     
+    </div>
+    <!-- <div class="col-5 offset-1">
+        <app-tabla [headers]="headers" [content]="vendedores" (handleRowClickEvent)="seleccionarvendedor($event)" [selected]="vendedor"></app-tabla>
+    </div> -->
+    <div class="col-5 offset-1">
+        <h3>Criptos</h3>
+        <app-tabla [headers]="headersCripto" [content]="criptos"></app-tabla>
+    </div>
+</div>

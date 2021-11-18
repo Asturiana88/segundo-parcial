@@ -1,0 +1,45 @@
+<div class="row">
+    <div class="col-4 shadow p-4">
+        <h3 class="my-3">Registrarse</h3>
+        <form id="loginform" class="form-horizontal" [formGroup]="form">
+            
+            <div style="margin-bottom: 25px" class="input-group">
+                <input class="form-control"  formControlName="email" type="email" name="email"  placeholder="Email">                                        
+            </div>
+
+            <div style="margin-bottom: 25px" class="input-group">
+                <input class="form-control" formControlName="password" type="password" name="password" placeholder="Password">                                        
+            </div>
+        
+            <div class="">
+                <div style="margin-top:10px" class="form-group">
+                    <div class="col-sm-12 controls">
+                        <button (click)="login()" class="btn btn-success"> Login </button>
+                    </div>
+                </div>
+
+                <div style="margin-top:10px; margin-left: 20px;" class="form-group">
+                    <div class="col-sm-12 controls">
+                        <button (click)="adminlogin()" class="btn btn-warning"> Login como admin </button>
+                    </div>
+                </div>
+
+                <div style="margin-top:10px; margin-left: 20px;" class="form-group">
+                    <div class="col-sm-12 controls">
+                        <button (click)="compradorlogin()" class="btn btn-info"> Login como comprador </button>
+                    </div>
+                </div>
+
+                <div style="margin-top:10px; margin-left: 20px;" class="form-group">
+                    <div class="col-sm-12 controls">
+                        <button (click)="vendedorlogin()" class="btn btn-danger"> Login como vendedor </button>
+                    </div>
+                </div>
+            </div>    
+            
+            <div class="mt-3">
+                <span class="text-danger" *ngIf="singUpError">{{singUpError}}</span>
+            </div>
+        </form>     
+    </div>
+</div>

@@ -1,0 +1,55 @@
+<div class="row">
+    <div class="col-4 shadow p-4">
+        <h3 class="my-3">Registrarse</h3>
+        <form id="loginform" class="form-horizontal" [formGroup]="form">
+            <div style="margin-bottom: 25px" class="input-group">
+                <input type="text"  formControlName="nombre" class="form-control" name="nombre" placeholder="Nombre">                                        
+            </div>
+        
+            <div style="margin-bottom: 25px" class="input-group">
+                <input class="form-control"  formControlName="email" type="email" name="email"  placeholder="Email">                                        
+            </div>
+        
+            <div style="margin-bottom: 25px" class="input-group">
+                <input class="form-control"  formControlName="foto" type="text" name="fotoPerfil" placeholder="Foto de perfil">                                        
+            </div>
+            
+            <div class="d-flex my-3">
+                <div class="form-check">
+                    <input class="form-check-input"  formControlName="tipo" [value]="'admin'" type="radio" name="flexRadioDefault" id="flexRadioDefault0">
+                    <label class="form-check-label" for="flexRadioDefault0">
+                    Admin
+                    </label>
+                </div>
+                <div class="form-check mx-3">
+                    <input class="form-check-input"  formControlName="tipo" [value]="'vendedor'" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                    <label class="form-check-label" for="flexRadioDefault1">
+                    Vendedor
+                    </label>
+                </div>
+                <div class="form-check mx-3">
+                    <input class="form-check-input"  formControlName="tipo" [value]="'comprador'" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+                    <label class="form-check-label" for="flexRadioDefault2">
+                    Comprador
+                    </label>
+                </div>
+            </div>
+
+            <div style="margin-bottom: 25px" class="input-group">
+                <input class="form-control" formControlName="password" type="password" name="password" placeholder="Password">                                        
+            </div>
+        
+            <div class="input-group">
+                <div style="margin-top:10px" class="form-group">
+                    <div class="col-sm-12 controls">
+                        <button (click)="registrarse()" class="btn btn-success"> Registrarse </button>
+                    </div>
+                </div>
+            </div>    
+            
+            <div class="mt-3">
+                <span class="text-danger" *ngIf="singUpError">{{singUpError}}</span>
+            </div>
+        </form>     
+    </div>
+</div>

@@ -1,0 +1,31 @@
+<div class="row">
+    <div class="col-12">
+        <table class="table table-dark">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Email</th>
+                    <th>Foto</th>
+                    <th>Estado</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let vendedor of vendedores | async">
+                    <td>{{vendedor.nombre}}</td>
+                    <td>{{vendedor.email}}</td>
+                    <td><img src="{{vendedor.foto}}" alt="" height="100px"></td>
+                    <td >
+                        <div style="height:100%;display: flex; justify-content: center; align-items: center;">
+                            <button *ngIf="!vendedor.approved" class="btn btn-warning" (click)="service.Validar(vendedor.uid)">
+                                Aprobar
+                            </button>
+                            <button *ngIf="vendedor.approved" class="btn btn-danger" (click)="service.RemoverAcceso(vendedor.uid)">
+                                Desaprobar
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

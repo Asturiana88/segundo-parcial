@@ -1,0 +1,18 @@
+<nav class="site-header navbar-expand-md navbar-dark bg-dark mb-4">
+    <div class="container d-flex flex-column flex-md-row justify-content-between navbar-nav">
+        <a class="nav-item nav-link py-2" routerLink="/">Home</a>
+        <a class="nav-item nav-link py-2" routerLink="crear-cripto" *ngIf="authService.isValidAdmin">Administar Criptos</a>
+        <a class="nav-item nav-link py-2" routerLink="listar-vendedores" *ngIf="authService.isValidAdmin">Administar Vendedores</a>
+        <a class="nav-item nav-link py-2" routerLink="listar-comprador" *ngIf="authService.isValidAdmin">Administar Compradores</a>
+        <a class="nav-item nav-link py-2" routerLink="listar-cripto" *ngIf="authService.getUser?.tipo == 'vendedor'">Listado Cripto</a>
+
+        <a class="nav-item nav-link py-2" *ngIf="!authService.isLoggedIn"
+            routerLink="login">Login</a>
+
+        <a class="nav-item nav-link py-2" *ngIf="!authService.isLoggedIn"
+            routerLink="singup">Registrarse</a>
+
+        <span class="nav-item nav-link py-2" *ngIf="authService.isLoggedIn"
+            (click)="authService.SignOut()">Desloguearse</span>
+    </div>
+</nav>
